@@ -1,6 +1,7 @@
 import './App.css'
 import PageContainer from './container/PageContainer'
 import Header from './components/header'
+import ProductList from './components/ProductList'
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <div>
       <PageContainer>{/**the outer box that includes all content */}
         <Header/> {/**the header section in pagecontainer */}
+        <ProductList/>
       </PageContainer>
     </div>
   )
