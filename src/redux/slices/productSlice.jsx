@@ -1,37 +1,38 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
-    products: [],
-    selectedProduct: {},
-    loading : false
-}
+  products: [],
+  selectedProduct: {},
+  loading: false,
+};
 
-const BASE_URL = "https://fakestoreapi.com/"
+const BASE_URL = "https://fakestoreapi.com/";
 
 export const getAllProducts = createAsyncThunk("getAllProducts", async () => {
-   const response = await axios.get(`${BASE_URL}/products`);
-   return response.data;
-})
+  const response = await axios.get(`${BASE_URL}/products`);
+  return response.data;
+});
 
 export const productSlice = createSlice({
-    name:"product",
-    initialState,
-    reducers: {
-
+  name: "product",
+  initialState,
+  reducers: {
+    setSelectedProduct: (state, action) => {
+      state.selectedProduct = action.payload;
     },
-    extraReducers: (builder) => {
-        builder.addCase(getAllProducts.pending, (state) => {
-            state.loading = true;
-        })
-        builder.addCase(getAllProducts.fulfilled, (state, action) => {
-            state.loading = false;
-            state.products = action.payload;
-        })
-    }
-})
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getAllProducts.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(getAllProducts.fulfilled, (state, action) => {
+      state.loading = false;
+      state.products = action.payload;
+    });
+  },
+});
 
+export const { setSelectedProduct } = productSlice.actions;
 
-export const {  } = productSlice.actions
-
-export default productSlice.reducer
+export default productSlice.reducer;

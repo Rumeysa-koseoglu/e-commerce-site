@@ -1,0 +1,38 @@
+.pro-details {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: arial;
+}
+
+.price {
+  font-size: 50px;
+  font-weight: bold;
+  color: green;
+}
+
+.icons-container {
+  /* width: 120px; */
+  display: flex;
+  align-items: center;
+}
+
+.icons {
+  font-size: 40px;
+}
+
+span {
+  font-size: 35px;
+  padding: 10px;
+}
+
+.basket {
+  margin-top: 25px;
+  border: none;
+  padding: 10px;
+  background-color: #4041c3;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
