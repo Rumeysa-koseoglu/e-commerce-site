@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import "../css/ProductDetails.css";
 import { CiSquarePlus } from "react-icons/ci";
 import { CiSquareMinus } from "react-icons/ci";
+import { addToBasket, calculateBasket } from "../redux/slices/basketSlice";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -22,6 +23,20 @@ function ProductDetails() {
 
   const decrement = () => {
     setCount(count - 1);
+  };
+
+  const addBasket = () => {
+    const payload = {
+      id,
+      price,
+      image,
+      title,
+      description,
+      count,
+    };
+
+    dispatch(addToBasket(payload));
+    dispatch(calculateBasket());
   };
 
   useEffect(() => {
@@ -63,7 +78,9 @@ function ProductDetails() {
         </div>
 
         <div>
-          <button className="basket">add to basket</button>
+          <button onClick={addBasket} className="basket">
+            add to basket
+          </button>
         </div>
       </div>
     </div>
