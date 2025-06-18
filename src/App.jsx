@@ -6,7 +6,11 @@ import RouterConfig from "./config/RouterConfig";
 import Loading from "./components/Loading";
 import Drawer from "@mui/material/Drawer";
 import { useDispatch, useSelector } from "react-redux";
-import { calculateBasket, setDrawer } from "./redux/slices/basketSlice";
+import {
+  calculateBasket,
+  removeFromBasket,
+  setDrawer,
+} from "./redux/slices/basketSlice";
 import { useEffect } from "react";
 
 function App() {
@@ -31,42 +35,60 @@ function App() {
           onClose={() => dispatch(setDrawer())}
           open={drawer}
         >
-          {products &&
-            products.map((product) => {
-              return (
-                <div key={product.id}>
-                  <div className="flex-row" style={{ padding: "20px" }}>
-                    <img
-                      style={{ marginRight: "5px" }}
-                      src={product.image}
-                      width={40}
-                      height={50}
-                    />
-                    <p style={{ width: "350px", marginRight: "5px" }}>
-                      {product.title}({product.count})
-                    </p>
-                    <p style={{ marginRight: "10px", width: "60px" }}>
-                      {product.price}₺
-                    </p>
+          <div style={{ width: "400px", padding: "20px" }}>
+            {products && products.length > 0 ? (
+              <>
+                {products.map((product) => (
+                  <div key={product.id}>
+                    <div className="flex-row" style={{ padding: "20px" }}>
+                      <img
+                        style={{ marginRight: "5px" }}
+                        src={product.image}
+                        width={40}
+                        height={50}
+                      />
+                      <p style={{ width: "350px", marginRight: "5px" }}>
+                        {product.title}({product.count})
+                      </p>
+                      <p style={{ marginRight: "10px", width: "60px" }}>
+                        {product.price}₺
+                      </p>
 
-                    <button
-                      style={{
-                        padding: "5px",
-                        backgroundColor: "rgb(230, 233, 238)",
-                        color: "#ff1c77",
-                        border: "none ",
-                        borderRadius: "5px",
-                        width: "50px",
-                      }}
-                    >
-                      clear
-                    </button>
+                      <button
+                        onClick={() => {
+                          dispatch(removeFromBasket(product.id));
+                          dispatch(calculateBasket());
+                        }}
+                        style={{
+                          padding: "5px",
+                          backgroundColor: "rgb(230, 233, 238)",
+                          color: "#ff1c77",
+                          border: "none ",
+                          borderRadius: "5px",
+                          width: "55px",
+                        }}
+                      >
+                        remove
+                      </button>
+                    </div>
                   </div>
+                ))}
+                <div>
+                  <p>Total: {totalAmount}₺</p>
                 </div>
-              );
-            })}
-          <div>
-            <p>total : {totalAmount}</p>
+              </>
+            ) : (
+              <p
+                style={{
+                  textAlign: "center",
+                  marginTop: "100px",
+                  fontSize: "18px",
+                  color: "#888",
+                }}
+              >
+                🛒 There is no product in the basket yet.
+              </p>
+            )}
           </div>
         </Drawer>
       </PageContainer>
