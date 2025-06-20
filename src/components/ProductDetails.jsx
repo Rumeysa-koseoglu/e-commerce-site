@@ -40,7 +40,12 @@ function ProductDetails() {
   };
 
   useEffect(() => {
-    getProductById();
+    const storedProduct = localStorage.getItem("selectedProduct");
+    if (storedProduct) {
+      dispatch(setSelectedProduct(JSON.parse(storedProduct)));
+    } else {
+      getProductById();
+    }
   }, []);
 
   const getProductById = () => {
@@ -54,15 +59,18 @@ function ProductDetails() {
 
   return (
     <div className="pro-details">
-      <div style={{ marginRight: "50px" }}>
-        <img src={image} width={200} height={300} alt="" />
-      </div>
-
-      <div>
-        <h1>{title}</h1>
-        <p style={{ fontSize: "20px" }}>{description}</p>
-        <h1 className="price">{price}₺</h1>
-
+      <div
+        style={{
+          marginRight: "50px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          backgroundColor: "#f5f7fa",
+          padding: "20px",
+          borderRadius: "10px",
+        }}
+      >
+        <img src={image} width={150} height={200} alt="" />
         <div className="icons-container">
           <CiSquareMinus
             onClick={decrement}
@@ -78,10 +86,22 @@ function ProductDetails() {
         </div>
 
         <div>
-          <button onClick={addBasket} className="basket">
+          <button onClick={addBasket} className="add-basket">
             add to basket
           </button>
         </div>
+      </div>
+
+      <div>
+        <h2
+          style={{ margin: "0 0 20px 0", fontWeight: "400", color: "#405a53" }}
+        >
+          {title}
+        </h2>
+        <p style={{ fontSize: "15px", fontWeight: "300", color: "#a9c5be" }}>
+          {description}
+        </p>
+        <h1 className="price">{price}₺</h1>
       </div>
     </div>
   );
