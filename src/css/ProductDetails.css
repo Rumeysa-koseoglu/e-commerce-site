@@ -1,5 +1,5 @@
 .pro-details {
-  margin-top: 30px;
+  margin-top: 90px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -7,31 +7,36 @@
 }
 
 .price {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: bold;
-  color: green;
+  color: #a9c5be;
 }
 
 .icons-container {
-  /* width: 120px; */
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 170px;
 }
 
 .icons {
   font-size: 40px;
+  margin-top: 25px;
+  color: #7a828c;
 }
 
 span {
   font-size: 35px;
   padding: 10px;
+  color: #68717c;
+  margin-top: 25px;
 }
 
-.basket {
-  margin-top: 25px;
+.add-basket {
+  width: 180px;
   border: none;
   padding: 10px;
-  background-color: #4041c3;
+  background-color: #a9c5be;
   border-radius: 5px;
   color: white;
   cursor: pointer;

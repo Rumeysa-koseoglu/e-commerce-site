@@ -60,35 +60,49 @@ function ProductDetails() {
   return (
     <div className="pro-details">
       <div
+        className="card-details container"
         style={{
+          backgroundColor: "#fff",
           marginRight: "50px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          backgroundColor: "#f5f7fa",
-          padding: "20px",
+          padding: "0 30px 0 30px",
           borderRadius: "10px",
         }}
       >
-        <img src={image} width={150} height={200} alt="" />
-        <div className="icons-container">
-          <CiSquareMinus
-            onClick={decrement}
-            className="icons"
-            style={{ marginRight: "5px" }}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            backgroundColor: "#fff",
+            padding: "20px",
+          }}
+        >
+          <img
+            style={{ objectFit: "contain" }}
+            src={image}
+            width={150}
+            height={200}
+            alt=""
           />
-          <span>{count}</span>
-          <CiSquarePlus
-            onClick={increment}
-            className="icons"
-            style={{ marginLeft: "5px" }}
-          />
-        </div>
+          <div className="icons-container">
+            <CiSquareMinus
+              onClick={decrement}
+              className="icons"
+              style={{ marginRight: "5px" }}
+            />
+            <span>{count}</span>
+            <CiSquarePlus
+              onClick={increment}
+              className="icons"
+              style={{ marginLeft: "5px" }}
+            />
+          </div>
 
-        <div>
-          <button onClick={addBasket} className="add-basket">
-            add to basket
-          </button>
+          <div>
+            <button onClick={addBasket} className="add-basket">
+              add to basket
+            </button>
+          </div>
         </div>
       </div>
 

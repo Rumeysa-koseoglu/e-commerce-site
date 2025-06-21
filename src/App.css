@@ -1,22 +1,24 @@
-.body {
-    padding: 0;
-    margin: 0;
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat";
+  background-color: #f5f7fa;
 }
 
 .flex-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: content;
 }
 
 .flex-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: content;
 }
 
 #root {
-    height: 100vh;
+  height: 100vh;
 }

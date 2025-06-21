@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "../css/header.css";
 import { CiShoppingBasket } from "react-icons/ci";
-import { CiLight } from "react-icons/ci";
-import { FaMoon } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Badge from "@mui/material/Badge";
 import { useDispatch, useSelector } from "react-redux";
@@ -51,7 +49,7 @@ function Header() {
         <p className="brand-text">MALLWORLD C.</p>
       </div>
 
-      <div className="flex-row">
+      <div className="flex-row" style={{ marginRight: "30px" }}>
         {/**it keeps input and icons */}
         <input
           className="search-input"
@@ -59,22 +57,23 @@ function Header() {
           placeholder="search something"
         />
 
-        <div style={{ display: "flex", flexDirection: "bottom" }}>
-          {theme ? (
+        <div style={{ display: "flex" }}>
+          {/* {theme ? (
             <FaMoon
               style={{ fontSize: "16px", marginRight: "10px" }}
               onClick={changeTheme}
             />
           ) : (
             <CiLight className="icon" onClick={changeTheme} />
-          )}
+          )}*/}
           <Badge
             onClick={() => dispatch(setDrawer())}
             badgeContent={products.length}
-            color="error"
+            color="warning"
             sx={{
-              padding: "0",
+              padding: "10px",
               "& .MuiBadge-badge": { fontSize: 10, height: 17, minWidth: 17 },
+              marginTop: "5px",
             }}
           >
             <CiShoppingBasket className="icon" />

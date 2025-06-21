@@ -1,24 +1,25 @@
 .logo {
-    width: 70px;
-    height: 70px;
+  width: 70px;
+  height: 70px;
 }
 
 .brand-text {
-    margin-top: 22px;
-    font-size: 12px;
-    font-weight: 600;
+  margin-top: 22px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .search-input {
-    border: none;
-    outline: none;
-    border-bottom: 1px solid lightgray;
-    padding: 5px 10px;
-    margin-right: 15px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #a9c5be;
+  padding: 5px 10px;
+  margin: 10px 15px 0 0;
+  background-color: transparent;
 }
 
 .icon {
-    font-size: 20px;
-    margin-right: 10px;
-    cursor: pointer;
+  font-size: 22px;
+  margin-top: 10px;
+  cursor: pointer;
 }

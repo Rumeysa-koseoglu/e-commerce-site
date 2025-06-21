@@ -1,34 +1,40 @@
 .image {
   width: 150px;
-  height: 190px;
-  margin: 0 25px 0 25px;
+  height: 200px;
+  margin: 0 0 0 10px;
+  border-radius: 10px;
+  padding: 20px 30px;
+  object-fit: contain;
 }
 
 .card {
-  width: 200px;
+  width: 230px;
   height: 380px;
-  box-shadow: 1px 4px 3px lightgray;
   border-radius: 10px;
-  margin: 15px;
-  padding: 10px;
-}
-
-.card:hover {
-  box-shadow: 1px 4px 3px rgb(86, 82, 82);
-  transition: all 0.5s;
-  cursor: pointer;
+  margin: 15px 15px 30px 15px;
+  padding: 10px 14px 10px 12px;
+  background-color: #fff;
 }
 
 .details-button {
   border: none;
-  border-radius: 5px;
-  padding: 8px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 7px;
   cursor: pointer;
-  background-color: rgb(118, 162, 197);
+  background-color: #a9c5be;
   color: #fff;
+  margin: 0 0 0 10px;
 }
 
 .details-button:hover {
   background-color: rgb(146, 196, 239);
   transition: all 0.5s;
+}
+
+.product-title {
+  height: 75px;
+  color: #595f67;
 }
