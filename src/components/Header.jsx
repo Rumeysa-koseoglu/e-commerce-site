@@ -5,29 +5,16 @@ import { useNavigate } from "react-router-dom";
 import Badge from "@mui/material/Badge";
 import { useDispatch, useSelector } from "react-redux";
 import { setDrawer } from "../redux/slices/basketSlice";
+import { setSearchTerm } from "../redux/slices/appSlice";
 
 function Header() {
-  const [theme, setTheme] = useState(false); //a state to set theme transition ('false' means the default theme (white theme))
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
   const { products } = useSelector((store) => store.basket);
 
-  //function to change theme
-  const changeTheme = () => {
-    const root = document.getElementById("root"); //we select the outermost container of the page
-    setTheme(!theme); //we reverse the theme value
-    if (theme) {
-      //if the theme is dark we make the background dark, and the texts color white
-      root.style.backgroundColor = "black";
-      root.style.color = "#fff";
-    } else {
-      //if it is the opposite we make the background white, and the texts color black
-      root.style.backgroundColor = "#fff";
-      root.style.color = "black";
-    }
-  };
+  const searchTerm = useSelector((store) => store.app.searchTerm);
 
   return (
     //main div of header section
@@ -55,6 +42,8 @@ function Header() {
           className="search-input"
           type="text"
           placeholder="search something"
+          value={searchTerm}
+          onChange={(e) => dispatch(setSearchTerm(e.target.value))}
         />
 
         <div style={{ display: "flex" }}>

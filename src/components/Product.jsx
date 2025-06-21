@@ -17,7 +17,7 @@ function Product({ product }) {
       <img src={image} className="image" />
       <div>
         <p className="product-title" title={title}>
-          {title.split(" ").slice(0, 6).join(" ")}
+          {title.split(" ").slice(0, 8).join(" ")}
         </p>
 
         <div className="flex-row" style={{ justifyContent: "space-between" }}>
