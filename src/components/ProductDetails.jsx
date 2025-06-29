@@ -22,7 +22,9 @@ function ProductDetails() {
   };
 
   const decrement = () => {
-    setCount(count - 1);
+    if (count > 0) {
+      setCount(count - 1);
+    }
   };
 
   const addBasket = () => {
@@ -35,8 +37,12 @@ function ProductDetails() {
       count,
     };
 
-    dispatch(addToBasket(payload));
-    dispatch(calculateBasket());
+    if (count === 0) {
+      alert("Please determine the quantity first ");
+    } else {
+      dispatch(addToBasket(payload));
+      dispatch(calculateBasket());
+    }
   };
 
   useEffect(() => {
