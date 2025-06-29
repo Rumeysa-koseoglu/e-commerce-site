@@ -35,7 +35,7 @@ function App() {
           onClose={() => dispatch(setDrawer())}
           open={drawer}
         >
-          <div style={{ width: "400px", padding: "20px" }}>
+          <div className="drawer">
             {products && products.length > 0 ? (
               <>
                 <p
@@ -49,32 +49,21 @@ function App() {
                 </p>
                 {products.map((product) => (
                   <div key={product.id}>
-                    <div className="flex-row" style={{ padding: "20px" }}>
-                      <img
-                        style={{ marginRight: "20px", objectFit: "contain" }}
-                        src={product.image}
-                        width={40}
-                        height={50}
-                      />
-                      <p style={{ width: "350px", marginRight: "5px" }}>
-                        {product.title}({product.count})
+                    <div className="flex-row" style={{ padding: "10px" }}>
+                      <img className="drawer-image" src={product.image} />
+                      <p className="drawer-prod-title">
+                        {product.title
+                          ? product.title.split(" ").slice(0, 6).join(" ")
+                          : ""}
+                        ({product.count})
                       </p>
-                      <p style={{ marginRight: "10px", width: "60px" }}>
-                        {product.price}₺
-                      </p>
+                      <p className="drawer-prod-price">{product.price}₺</p>
 
                       <button
+                        className="drawer-button"
                         onClick={() => {
                           dispatch(removeFromBasket(product.id));
                           dispatch(calculateBasket());
-                        }}
-                        style={{
-                          padding: "5px",
-                          backgroundColor: "#f5f7fa",
-                          color: "#a9c5be",
-                          border: "none ",
-                          borderRadius: "5px",
-                          width: "55px",
                         }}
                       >
                         remove
@@ -83,18 +72,13 @@ function App() {
                   </div>
                 ))}
                 <div>
-                  <p>Total: {totalAmount}₺</p>
+                  <p>
+                    Total: <span className="total-price">{totalAmount}₺</span>
+                  </p>
                 </div>
               </>
             ) : (
-              <p
-                style={{
-                  textAlign: "center",
-                  marginTop: "100px",
-                  fontSize: "18px",
-                  color: "#888",
-                }}
-              >
+              <p className="drawer-info-text">
                 There is no product in the basket yet.
               </p>
             )}

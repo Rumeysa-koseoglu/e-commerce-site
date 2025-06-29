@@ -59,63 +59,44 @@ function ProductDetails() {
 
   return (
     <div className="pro-details">
-      <div
-        className="card-details container"
-        style={{
-          backgroundColor: "#fff",
-          marginRight: "50px",
-          padding: "0 30px 0 30px",
-          borderRadius: "10px",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            backgroundColor: "#fff",
-            padding: "20px",
-          }}
-        >
-          <img
-            style={{ objectFit: "contain" }}
-            src={image}
-            width={150}
-            height={200}
-            alt=""
-          />
-          <div className="icons-container">
-            <CiSquareMinus
-              onClick={decrement}
-              className="icons"
-              style={{ marginRight: "5px" }}
-            />
-            <span>{count}</span>
-            <CiSquarePlus
-              onClick={increment}
-              className="icons"
-              style={{ marginLeft: "5px" }}
-            />
-          </div>
-
-          <div>
-            <button onClick={addBasket} className="add-basket">
-              add to basket
-            </button>
-          </div>
-        </div>
+      <div className="proDetails-card">
+        <img className="proDetails-image" src={image} />
       </div>
 
-      <div>
-        <h2
-          style={{ margin: "0 0 20px 0", fontWeight: "400", color: "#405a53" }}
-        >
-          {title}
+      <div className="description-section">
+        <h2 className="proDetails-title">
+          {title ? title.split(" ").slice(0, 6).join(" ") : ""}
         </h2>
-        <p style={{ fontSize: "15px", fontWeight: "300", color: "#a9c5be" }}>
-          {description}
+
+        <p className="proDetails-desc" title={description}>
+          {description
+            ? description
+                .split(" ")
+                .slice(0, 20)
+                .map((word, index) =>
+                  index === 8 ? (
+                    <span className="proDetails-desc" key={index}>
+                      <br />
+                      {word}{" "}
+                    </span>
+                  ) : (
+                    word + " "
+                  )
+                )
+            : ""}
+          ..
         </p>
         <h1 className="price">{price}₺</h1>
+        <div className="iconsAndButton">
+          <div className="icons-container">
+            <CiSquareMinus onClick={decrement} className="minus-icon" />
+            <span>{count}</span>
+            <CiSquarePlus onClick={increment} className="plus-icon" />
+          </div>
+          <button onClick={addBasket} className="add-basket-btn">
+            add to basket
+          </button>
+        </div>
       </div>
     </div>
   );

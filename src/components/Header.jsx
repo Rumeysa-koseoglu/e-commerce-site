@@ -18,14 +18,7 @@ function Header() {
 
   return (
     //main div of header section
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-      }}
-    >
+    <div className="header-container">
       <div
         className="flex-row"
         onClick={() => navigate("/")}
@@ -36,31 +29,23 @@ function Header() {
         <p className="brand-text">MALLWORLD C.</p>
       </div>
 
-      <div className="flex-row" style={{ marginRight: "30px" }}>
+      <div className="inputAndIcon" style={{ marginRight: "30px" }}>
         {/**it keeps input and icons */}
         <input
           className="search-input"
           type="text"
-          placeholder="search something"
+          placeholder="search"
           value={searchTerm}
           onChange={(e) => dispatch(setSearchTerm(e.target.value))}
         />
 
-        <div style={{ display: "flex" }}>
-          {/* {theme ? (
-            <FaMoon
-              style={{ fontSize: "16px", marginRight: "10px" }}
-              onClick={changeTheme}
-            />
-          ) : (
-            <CiLight className="icon" onClick={changeTheme} />
-          )}*/}
+        <div className="icon-badge-wrapper">
           <Badge
             onClick={() => dispatch(setDrawer())}
             badgeContent={products.length}
             color="warning"
             sx={{
-              padding: "10px",
+              padding: "5px",
               "& .MuiBadge-badge": { fontSize: 10, height: 17, minWidth: 17 },
               marginTop: "5px",
             }}

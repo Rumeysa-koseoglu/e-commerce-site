@@ -17,25 +17,17 @@ function Product({ product }) {
       <img src={image} className="image" />
       <div>
         <p className="product-title" title={title}>
-          {title.split(" ").slice(0, 8).join(" ")}
+          {title.split(" ").slice(0, 7).join(" ")}
         </p>
 
-        <div className="flex-row" style={{ justifyContent: "space-between" }}>
-          <h3
-            style={{
-              textAlign: "left",
-              margin: "0 75px 0 10px",
-              color: "#a9c5b2",
-            }}
-          >
-            {price}₺
-          </h3>
+        <div className="price-button-container">
+          <h3 className="card-price">{price}₺</h3>
 
           <button
             onClick={() => handleNavigate(product)}
             className="details-button"
           >
-            details..
+            details
           </button>
         </div>
       </div>
