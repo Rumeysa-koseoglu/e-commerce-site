@@ -25,7 +25,7 @@ function Header() {
         style={{ cursor: "pointer" }}
       >
         {/**the div keeps logo and brand */}
-        <img src="/src/images/logo.png" className="logo" alt="#" />
+        <img src="/logo.png" className="logo" alt="#" />
         <p className="brand-text">MALLWORLD C.</p>
       </div>
 
